@@ -12,18 +12,19 @@ covid_data = pd.read_csv("C:/Users/Erdem/python kodları/Data_Visualization/covi
 
 cd_grouped = covid_data[['Country/Region', 'Confirmed']]
 cd_grouped = cd_grouped.groupby('Country/Region', as_index = False).max().sort_values('Country/Region', ascending = True)
-#cd_grouped = cd_grouped.iloc[1:]
-cd_grouped.at[94,'Country/Region'] = 'China'
-cd_grouped.at[161,'Country/Region'] = 'United Kingdom'
-cd_grouped.at[162,'Country/Region'] = 'United States of America'
-cd_grouped.at[112,'Country/Region'] = 'Macedonia'
-cd_grouped.at[138,'Country/Region'] = 'Republic of Serbia'
-cd_grouped.at[117,'Country/Region'] = 'West Bank'
-cd_grouped.at[154,'Country/Region'] = 'United Republic of Tanzania'
-cd_grouped.at[33,'Country/Region'] = 'Republic of the Congo'
-cd_grouped.at[34,'Country/Region'] = 'Democratic Republic of the Congo'
+print(cd_grouped)
 
-pd.set_option('display.max_rows', 171)
+cd_grouped.at[106,'Country/Region'] = 'China'
+cd_grouped.at[179,'Country/Region'] = 'United Kingdom'
+cd_grouped.at[180,'Country/Region'] = 'United States of America'
+cd_grouped.at[128,'Country/Region'] = 'Macedonia'
+cd_grouped.at[155,'Country/Region'] = 'Republic of Serbia'
+cd_grouped.at[190,'Country/Region'] = 'West Bank'
+cd_grouped.at[171,'Country/Region'] = 'United Republic of Tanzania'
+cd_grouped.at[38,'Country/Region'] = 'Republic of the Congo'
+cd_grouped.at[39,'Country/Region'] = 'Democratic Republic of the Congo'
+
+pd.set_option('display.max_rows', 200)
 print(cd_grouped)
 
 # To compare by the population.
@@ -49,11 +50,12 @@ folium.Choropleth(
     fill_opacity=0.7, 
     line_opacity=0.3,
     legend_name='Confirmed Covid-19 Cases Across the Globe',
+#    legend_name='Confirmed Covid-19 Cases rated by Population', 
     nan_fill_color = 'white',
     reset = True
 ).add_to(world_map)
 
 
 # display world map
-world_map.save('map1.html')
-
+world_map.save('mapOfCases.html')
+#world_map.save('mapByPopulation.html')
