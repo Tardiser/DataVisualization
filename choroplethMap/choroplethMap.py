@@ -12,19 +12,21 @@ covid_data = pd.read_csv("C:/Users/Erdem/python kodları/Data_Visualization/covi
 
 cd_grouped = covid_data[['Country/Region', 'Confirmed']]
 cd_grouped = cd_grouped.groupby('Country/Region', as_index = False).max().sort_values('Country/Region', ascending = True)
+
+pd.set_option('display.max_rows', 250)
 print(cd_grouped)
 
-cd_grouped.at[106,'Country/Region'] = 'China'
-cd_grouped.at[179,'Country/Region'] = 'United Kingdom'
-cd_grouped.at[180,'Country/Region'] = 'United States of America'
-cd_grouped.at[128,'Country/Region'] = 'Macedonia'
-cd_grouped.at[155,'Country/Region'] = 'Republic of Serbia'
-cd_grouped.at[190,'Country/Region'] = 'West Bank'
-cd_grouped.at[171,'Country/Region'] = 'United Republic of Tanzania'
-cd_grouped.at[38,'Country/Region'] = 'Republic of the Congo'
-cd_grouped.at[39,'Country/Region'] = 'Democratic Republic of the Congo'
+cd_grouped.at[122,'Country/Region'] = 'China'
+cd_grouped.at[204,'Country/Region'] = 'United Kingdom'
+cd_grouped.at[205,'Country/Region'] = 'United States of America'
+cd_grouped.at[147,'Country/Region'] = 'Macedonia'
+cd_grouped.at[176,'Country/Region'] = 'Republic of Serbia'
+cd_grouped.at[214,'Country/Region'] = 'West Bank'
+cd_grouped.at[195,'Country/Region'] = 'United Republic of Tanzania'
+cd_grouped.at[44,'Country/Region'] = 'Republic of the Congo'
+cd_grouped.at[45,'Country/Region'] = 'Democratic Republic of the Congo'
 
-pd.set_option('display.max_rows', 200)
+
 print(cd_grouped)
 
 # To compare by the population.
